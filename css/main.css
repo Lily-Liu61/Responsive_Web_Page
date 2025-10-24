@@ -1,0 +1,113 @@
+/* main.css - clean version for multi-page AI website */
+:root {
+  --bg: #0b0f16;
+  --text: #e6eef6;
+  --muted: #9aa6b2;
+  --accent: #2dd4ff;
+  --radius: 10px;
+  --ff: "Poppins", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--ff);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* --- NAVIGATION --- */
+.site-header {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(10,12,15,0.9);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 10;
+}
+.nav-container {
+  max-width: 1100px; margin: auto; padding: 0.8rem 1rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.brand { font-weight: 700; color: var(--text); text-decoration: none; }
+.site-nav ul { list-style: none; display: flex; gap: 0.6rem; }
+.site-nav a {
+  text-decoration: none; color: var(--muted);
+  padding: 0.4rem 0.8rem; border-radius: var(--radius);
+}
+.site-nav a:hover, .site-nav a.active {
+  background: var(--accent); color: #001213;
+}
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.hamburger, .hamburger::before, .hamburger::after {
+  display: block; width: 22px; height: 2px; background: var(--muted);
+  border-radius: 2px; position: relative;
+}
+.hamburger::before, .hamburger::after { content: ""; position: absolute; }
+.hamburger::before { top: -6px; } .hamburger::after { top: 6px; }
+
+/* --- HERO SECTION --- */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: url('https://viso.ai/wp-content/uploads/2024/02/ASI-ANI-AGI-types-of-AI.jpg') center/cover no-repeat;
+  padding: 5rem 1rem;
+  color: #e6f7ff;
+}
+.hero .btn { margin: 0.4rem; }
+
+/* --- GENERAL SECTIONS --- */
+.section {
+  max-width: 1100px; margin: 6rem auto; padding: 1.5rem;
+}
+.section.dark {
+  background: #ffffff;        /* Light background for see_also page */
+  color: #111;
+  border-radius: var(--radius);
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-block;
+  background: var(--accent); color: #001213;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn:hover { opacity: 0.9; }
+.btn.ghost {
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* --- TABLE --- */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+.summary-table {
+  width: 100%; border-collapse: collapse;
+}
+.summary-table th, .summary-table td {
+  padding: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.summary-table th {
+  text-align: left; color: var(--accent);
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .site-nav { display: none; }
+  .nav-toggle { display: block; }
+  .site-nav.open {
+    display: block;
+    position: absolute; top: 60px; right: 1rem;
+    background: rgba(10,12,15,0.95);
+    padding: 1rem; border-radius: var(--radius);
+  }
+  .site-nav.open ul { flex-direction: column; gap: 0.4rem; }
+}
